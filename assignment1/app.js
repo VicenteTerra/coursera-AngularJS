@@ -10,14 +10,17 @@ function LunchCheckController($scope) {
 
   $scope.lunch = "";
   $scope.msg = "";
+  $scope.status = 0;
 
   $scope.check = function (){
-    if($scope.lunch == ""){
-        $scope.msg = "Please enter data first!"
+    if($scope.lunch === ""){
+        $scope.msg = "Please enter data first!";
+        $scope.status = 1;
     }
     else{
-      
-      var count = $scope.lunch.split(",");
+      $scope.status = 2;
+      var  count = $scope.lunch.split(",");
+
       if(count.length <= 3){
       $scope.msg = "Enjoy!";
       }
